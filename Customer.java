@@ -1,11 +1,9 @@
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Customer {
+	private Rentals rentals = new Rentals();
 	private String name;
-
-	private List<Rental> rentals = new ArrayList<Rental>();
 
 	public Customer(String name) {
 		this.setName(name);
@@ -19,18 +17,33 @@ public class Customer {
 		this.name = name;
 	}
 
-	public List<Rental> getRentals() {
+	public Rentals getRentals() {
 		return rentals;
 	}
 
-	public void setRentals(List<Rental> rentals) {
+	public void setRentals(Rentals rentals) {
 		this.rentals = rentals;
 	}
 
+	public void clearRentals() {
+		this.rentals = new Rentals();
+	}
+
 	public void addRental(Rental rental) {
-		rentals.add(rental);
+		rentals.rentals.add(rental);
 
 	}
+
+	protected void showRentals() {
+		System.out.println("Name: " + getName() +
+				"\tRentals: " + getRentals().getSize()) ;
+		rentals.showRentals();
+	}
+
+	protected void returnVideo(String videoTitle) {
+		rentals.returnVideo(videoTitle);
+	}
+
 
 	public String getReport() {
 		String result = "Customer Report for " + getName() + "\n";

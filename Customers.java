@@ -17,4 +17,25 @@ public class Customers {
         }
         return foundCustomer;
     }
+
+    protected void clearRantals(String customerName) {
+        Customer foundCustomer = getCustomer(customerName);
+
+        if ( foundCustomer == null ) {
+            System.out.println("No customer found") ;
+        } else {
+            foundCustomer.showRentals();
+            foundCustomer.clearRentals();
+        }
+    }
+
+    protected boolean hasCustomer(String customerName) {
+        return getCustomer(customerName) != null;
+    }
+
+    protected void returnVideo(String customerName, String videoTitle) {
+        Customer foundCustomer = getCustomer(customerName);
+
+        foundCustomer.returnVideo(videoTitle);
+    }
 }
