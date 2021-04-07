@@ -3,7 +3,7 @@ import java.util.Date;
 public class Video {
 	private String title ;
 
-	private int priceCode ;
+	private PriceCode priceCode;
 	public static final int REGULAR = 1 ;
 	public static final int NEW_RELEASE =2 ;
 
@@ -23,7 +23,10 @@ public class Video {
 			case DVD: this.videoType = new VideoTypeDVD();
 		}
 		this.setVideoType(videoType) ;
-		this.setPriceCode(priceCode) ;
+		switch (priceCode) {
+			case REGULAR: this.priceCode = new PriceCodeRegular();
+			case NEW_RELEASE: this.priceCode = new PriceCodeNewRelease();
+		}
 		this.registeredDate = registeredDate ;
 	}
 
@@ -36,10 +39,10 @@ public class Video {
 	}
 
 	public int getPriceCode() {
-		return priceCode;
+		return priceCode.getPriceCode();
 	}
 
-	public void setPriceCode(int priceCode) {
+	public void setPriceCode(PriceCode priceCode) {
 		this.priceCode = priceCode;
 	}
 
@@ -73,5 +76,9 @@ public class Video {
 
 	public void setVideoType(int videoType) {
 		this.videoType.videoType = videoType;
+	}
+
+	public double getCharge(double charge, int daysRented) {
+		return priceCode.getCharge(charge, daysRented);
 	}
 }

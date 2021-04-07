@@ -90,19 +90,7 @@ public class Rental {
 	}
 
 	private double getEachCharge(double eachCharge, int daysRented) {
-		double returnCharge = eachCharge;
-
-		switch (getVideo().getPriceCode()) {
-			case Video.REGULAR:
-				returnCharge += 2;
-				if (daysRented > 2)
-					returnCharge += (daysRented - 2) * 1.5;
-				break;
-			case Video.NEW_RELEASE:
-				returnCharge = daysRented * 3;
-				break;
-		}
-		return returnCharge;
+		return getVideo().getCharge(eachCharge, daysRented);
 	}
 
 	private int getDaysRented() {
