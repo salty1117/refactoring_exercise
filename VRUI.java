@@ -96,30 +96,19 @@ public class VRUI {
 		System.out.println("Enter customer name: ") ;
 		String customerName = scanner.next() ;
 
-		Customer foundCustomer = customers.getCustomer(customerName);
-
-		if ( foundCustomer == null ) return ;
+		if (!customers.hasCustomer(customerName)) {
+			return;
+		}
 
 		System.out.println("Enter video title to rent: ") ;
 		String videoTitle = scanner.next() ;
 
-		Video foundVideo = null ;
-		for ( Video video: videos.videos) {
-			if ( video.getTitle().equals(videoTitle) && video.isRented() == false ) {
-				foundVideo = video ;
-				break ;
-			}
-		}
+		Video foundVideo = videos.getVideo(videoTitle);
+		if (foundVideo == null) return;
 
-		if ( foundVideo == null ) return ;
-
-		Rental rental = new Rental(foundVideo) ;
-		foundVideo.setRented(true);
-
-		List<Rental> customerRentals = foundCustomer.getRentals() ;
-		customerRentals.add(rental);
-		foundCustomer.setRentals(customerRentals);
+		customers.rentVideo(customerName, foundVideo);
 	}
+
 
 	public void register(String object) {
 		if ( object.equals("customer") ) {

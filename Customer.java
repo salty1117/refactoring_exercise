@@ -60,4 +60,8 @@ public class Customer {
 
 		return report.getReport() ;
 	}
+
+	protected void rentVideo(Video foundVideo) {
+		rentals.rentVideo(foundVideo);
+	}
 }

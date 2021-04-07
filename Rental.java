@@ -107,4 +107,8 @@ public class Rental {
 		report.addCharge(eachCharge);
 		report.addPoint(eachPoint) ;
 	}
+
+	public void setRented(Video foundVideo) {
+		foundVideo.setRented(true);
+	}
 }

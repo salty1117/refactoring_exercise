@@ -56,4 +56,11 @@ public class Rentals {
             System.out.println("Congrat! You earned two free coupon");
         }
     }
+
+    protected void rentVideo(Video foundVideo) {
+        Rental rental = new Rental(foundVideo) ;
+        rental.setRented(foundVideo);
+
+        rentals.add(rental);
+    }
 }

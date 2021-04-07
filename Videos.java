@@ -12,4 +12,17 @@ public class Videos {
             System.out.println("Price code: " + video.getPriceCode() +"\tTitle: " + video.getTitle()) ;
         }
     }
+
+    protected Video getVideo(String videoTitle) {
+        Video foundVideo = null ;
+        for ( Video video: videos) {
+            if ( video.getTitle().equals(videoTitle) && video.isRented() == false ) {
+                foundVideo = video ;
+                break ;
+            }
+        }
+
+        return foundVideo;
+    }
+
 }

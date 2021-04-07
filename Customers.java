@@ -57,4 +57,10 @@ public class Customers {
             System.out.println(result);
         }
     }
+
+    protected void rentVideo(String customerName, Video foundVideo) {
+        Customer foundCustomer = getCustomer(customerName);
+
+        foundCustomer.rentVideo(foundVideo);
+    }
 }
