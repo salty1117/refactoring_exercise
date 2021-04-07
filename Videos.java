@@ -25,4 +25,7 @@ public class Videos {
         return foundVideo;
     }
 
+    public void addVideo(Video video) {
+        videos.add(video);
+    }
 }

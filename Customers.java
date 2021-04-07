@@ -63,4 +63,9 @@ public class Customers {
 
         foundCustomer.rentVideo(foundVideo);
     }
+
+    public void addCustomer(String name) {
+        Customer customer = new Customer(name);
+        customers.add(customer);
+    }
 }
