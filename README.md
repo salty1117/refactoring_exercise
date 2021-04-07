@@ -4,4 +4,4 @@ Original Structure
 
 
 New Structure
-![ex_screenshot](./NewStructure.png)
+![ex_screenshot](./NewStructure.gif)
