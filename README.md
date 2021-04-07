@@ -1,7 +1,7 @@
 # refactoring_exercise
-Original Structure
+## Original Structure
 ![ex_screenshot](./origin.png)
 
 
-New Structure
+## New Structure
 ![ex_screenshot](./NewStructure.gif)
