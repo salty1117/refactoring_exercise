@@ -120,7 +120,7 @@ public class VRUI {
 		int priceCode = scanner.nextInt();
 
 		Date registeredDate = new Date();
-		videos.addVideo(new Video(title, videoType, priceCode, registeredDate))
+		videos.addVideo(new Video(title, videoType, priceCode, registeredDate));
 	}
 
 	private void registerCustomer() {
