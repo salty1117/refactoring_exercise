@@ -6,4 +6,10 @@ public class Videos {
 
     public Videos() {
     }
+
+    protected void listVideos() {
+        for ( Video video: videos) {
+            System.out.println("Price code: " + video.getPriceCode() +"\tTitle: " + video.getTitle()) ;
+        }
+    }
 }

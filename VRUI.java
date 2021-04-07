@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -35,7 +34,7 @@ public class VRUI {
 		System.out.println("Enter customer name: ") ;
 		String customerName = scanner.next() ;
 
-		customers.clearRantals(customerName);
+		customers.clearRentals(customerName);
 	}
 
 	public void returnVideo() {
@@ -73,22 +72,16 @@ public class VRUI {
 	public void listVideos() {
 		System.out.println("List of videos");
 
-		for ( Video video: videos.videos) {
-			System.out.println("Price code: " + video.getPriceCode() +"\tTitle: " + video.getTitle()) ;
-		}
+		videos.listVideos();
+
 		System.out.println("End of list");
 	}
 
 	public void listCustomers() {
 		System.out.println("List of customers");
-		for ( Customer customer: customers.customers) {
-			System.out.println("Name: " + customer.getName() +
-					"\tRentals: " + customer.getRentals().size()) ;
-			for ( Rental rental: customer.getRentals() ) {
-				System.out.print("\tTitle: " + rental.getVideo().getTitle() + " ") ;
-				System.out.print("\tPrice Code: " + rental.getVideo().getPriceCode()) ;
-			}
-		}
+
+		customers.listCustomers();
+
 		System.out.println("End of list");
 	}
 
@@ -96,14 +89,7 @@ public class VRUI {
 		System.out.println("Enter customer name: ") ;
 		String customerName = scanner.next() ;
 
-		Customer foundCustomer = customers.getCustomer(customerName);
-
-		if ( foundCustomer == null ) {
-			System.out.println("No customer found") ;
-		} else {
-			String result = foundCustomer.getReport() ;
-			System.out.println(result);
-		}
+		customers.getReport(customerName);
 	}
 
 	public void rentVideo() {

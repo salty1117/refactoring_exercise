@@ -18,7 +18,7 @@ public class Customers {
         return foundCustomer;
     }
 
-    protected void clearRantals(String customerName) {
+    protected void clearRentals(String customerName) {
         Customer foundCustomer = getCustomer(customerName);
 
         if ( foundCustomer == null ) {
@@ -37,5 +37,24 @@ public class Customers {
         Customer foundCustomer = getCustomer(customerName);
 
         foundCustomer.returnVideo(videoTitle);
+    }
+
+    protected void listCustomers() {
+        for ( Customer customer: customers) {
+            System.out.println("Name: " + customer.getName() +
+                    "\tRentals: " + customer.getRentalSize()) ;
+            customer.listRentals();
+        }
+    }
+
+    protected void getReport(String customerName) {
+        Customer foundCustomer = getCustomer(customerName);
+
+        if ( foundCustomer == null ) {
+            System.out.println("No customer found") ;
+        } else {
+            String result = foundCustomer.getReport() ;
+            System.out.println(result);
+        }
     }
 }
