@@ -25,7 +25,7 @@ public class Rental {
 	}
 
 	public void returnVideo() {
-		if ( status == 1 ) {
+		if ( status == 0 ) {
 			this.status = 1;
 			returnDate = new Date() ;
 		}
@@ -58,11 +58,7 @@ public class Rental {
 		}
 		if ( daysRented <= 2) return limit ;
 
-		switch ( video.getVideoType() ) {
-			case Video.VHS: limit = 5 ; break ;
-			case Video.CD: limit = 3 ; break ;
-			case Video.DVD: limit = 2 ; break ;
-		}
+		limit = video.getLimit(limit);
 		return limit ;
 	}
 
