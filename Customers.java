@@ -6,4 +6,15 @@ public class Customers {
 
     public Customers() {
     }
+
+    protected Customer getCustomer(String customerName) {
+        Customer foundCustomer = null;
+        for (Customer customer : customers) {
+            if (customer.getName().equals(customerName)) {
+                foundCustomer = customer;
+                break;
+            }
+        }
+        return foundCustomer;
+    }
 }
